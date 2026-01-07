@@ -435,7 +435,8 @@ def format_grades(data):
                 if credits is None: credits_display = '-'
                 else: credits_display = f"{credits:.1f}"
 
-                if gp is not None and credits is not None and credits > 0:
+                # Exclude P/NP from calculation
+                if grade not in ['P', 'NP'] and gp is not None and credits is not None and credits > 0:
                     semester_total_gp_x_credits += float(gp) * float(credits)
                     semester_total_credits += float(credits)
 
